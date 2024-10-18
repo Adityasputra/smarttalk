@@ -1,17 +1,17 @@
-import {
+const {
   Text,
   View,
   StyleSheet,
   TextInput,
   TouchableOpacity,
   Pressable,
-} from "react-native";
-import React, { useState } from "react";
+} = require("react-native");
+const React = require("react");
+import { useRoute } from "@react-navigation/native";
 import Entypo from "react-native-vector-icons/Entypo";
 
-export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function RegisterScreen({ navigation }) {
+  const router = useRoute();
 
   return (
     <View style={styles.container}>
@@ -21,35 +21,36 @@ export default function LoginScreen({ navigation }) {
       </View>
 
       <View style={styles.containerForm}>
-        <Text style={styles.title}>Login</Text>
+        <Text style={styles.title}>Register</Text>
 
         <TextInput
           style={styles.input}
+          placeholder="Username"
+          placeholderTextColor="#aaa"
+        />
+        <TextInput
+          style={styles.input}
           placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
           placeholderTextColor="#aaa"
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
-          value={password}
           secureTextEntry
-          onChangeText={setPassword}
           placeholderTextColor="#aaa"
         />
 
-        <TouchableOpacity onPress={() => {}} style={styles.buttonSubmit}>
+        <TouchableOpacity style={styles.buttonSubmit}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
 
         <Pressable
-          onPress={() => navigation.navigate("Register")}
-          style={styles.signUpLink}
+          onPress={() => navigation.navigate("Login")}
+          style={styles.signInLink}
         >
           <Text>
-            Don't have an account?{" "}
-            <Text style={styles.signUpText}>Sign Up</Text>
+            Already have an account?{" "}
+            <Text style={styles.signInText}>Sign In</Text>
           </Text>
         </Pressable>
       </View>
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f4f4f4",
     borderTopLeftRadius: 60,
+    // borderTopRightRadius: 60,
     paddingHorizontal: 20,
     paddingVertical: 40,
     alignItems: "center",
@@ -117,10 +119,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
-  signUpLink: {
+  signInLink: {
     marginTop: 20,
   },
-  signUpText: {
+  signInText: {
     color: "#1a73e8",
     textDecorationLine: "underline",
   },
