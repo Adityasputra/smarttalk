@@ -1,10 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
-import StackScreen from "./StackScreen";
+import { AuthStackScreen, StackScreen } from "./StackScreen";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
-export default function MainStack() {
+export default function MainStack(porps) {
+  const { isSignedIn, setiIsSignedIn } = useContext(AuthContext);
   return (
     <NavigationContainer>
-      <StackScreen />
+      {/* {isSignedIn ? <AuthStackScreen /> : <StackScreen />} */}
+      <AuthStackScreen />
     </NavigationContainer>
   );
 }

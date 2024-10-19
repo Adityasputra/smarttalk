@@ -40,7 +40,7 @@ export default function RegisterScreen({ navigation }) {
           placeholderTextColor="#aaa"
         />
 
-        <TouchableOpacity style={styles.buttonSubmit}>
+        <TouchableOpacity style={styles.buttonSubmit} onPress={() => navigation.navigate("Login")}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
 

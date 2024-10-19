@@ -6,13 +6,22 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Entypo from "react-native-vector-icons/Entypo";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setIsSignedIn } = useContext(AuthContext);
 
+  const handleLogin = async () => {
+    try {
+      setIsSignedIn(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -39,7 +48,7 @@ export default function LoginScreen({ navigation }) {
           placeholderTextColor="#aaa"
         />
 
-        <TouchableOpacity onPress={() => {}} style={styles.buttonSubmit}>
+        <TouchableOpacity style={styles.buttonSubmit} onPress={handleLogin}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
 
