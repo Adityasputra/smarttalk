@@ -7,7 +7,9 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
+
+// Icons Imports
+import { Ionicons } from "@expo/vector-icons";
 
 const users = [
   {
@@ -58,7 +60,9 @@ export default function HomeScreen({ navigation }) {
             </View>
           </View>
           <View style={styles.headerRight}>
-            <SimpleLineIcons name="options" size={24} color="#f4f4f4" />
+            <TouchableOpacity onPress={() => navigation.navigate("AddFriend")}>
+              <Ionicons name="person-add" size={24} color="#f4f4f4" />
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -73,7 +77,6 @@ export default function HomeScreen({ navigation }) {
             <TouchableOpacity
               key={user.id}
               style={styles.chatUser}
-              // onPress={() => navigation.navigate("Chat", { userId: user.id })}
               onPress={() => navigation.navigate("Chat")}
             >
               <Image
@@ -91,6 +94,7 @@ export default function HomeScreen({ navigation }) {
     </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -115,7 +119,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   headerRight: {
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
   },
   profileImage: {

@@ -6,7 +6,6 @@ const {
   TouchableOpacity,
   Pressable,
 } = require("react-native");
-const React = require("react");
 import { useRoute } from "@react-navigation/native";
 import Entypo from "react-native-vector-icons/Entypo";
 

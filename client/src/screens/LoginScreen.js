@@ -6,8 +6,10 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Entypo from "react-native-vector-icons/Entypo";
+
+// Contexts Import
 import { AuthContext } from "../contexts/AuthContext";
 
 export default function LoginScreen({ navigation }) {

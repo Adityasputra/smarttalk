@@ -1,13 +1,20 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import LoginScreen from "../screens/LoginScreen";
 import { StyleSheet, Image, Text, View } from "react-native";
+
+// Screen Imports
+import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import HomeScreen from "../screens/HomeScreen";
-import TabScreen from "./TabScreen";
 import ChatScreen from "../screens/chats/ChatScreen";
+import AddFriendScreen from "../screens/AddFirendScreen";
+
+// Tab Imports
+import TabScreen from "./TabScreen";
 
 const Stack = createStackNavigator();
+
+// Main Stack Screen
 export default function StackScreen() {
   return (
     <SafeAreaProvider>
@@ -34,12 +41,7 @@ export default function StackScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
+// Authentication Screens
 export function AuthStackScreen() {
   return (
     <Stack.Navigator>
@@ -82,6 +84,20 @@ export function AuthStackScreen() {
           ),
         })}
       />
+      <Stack.Screen
+        name="AddFriend"
+        component={AddFriendScreen}
+        options={{
+          headerTitleAlign: "center",
+          headerTitle: "Add Friend",
+        }}
+      />
     </Stack.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

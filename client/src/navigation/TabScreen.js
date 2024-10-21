@@ -1,11 +1,15 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "../screens/HomeScreen";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import { Ionicons } from "@expo/vector-icons";
-import FriendScreen from "../screens/FriendScreen";
-import GrupScreen from "../screens/GrupScree";
-import SettingScreen from "../screens/SettingScreen";
 import { View } from "react-native";
+
+// Icon Imports
+import { Ionicons } from "@expo/vector-icons";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+
+// Screen Imports
+import GrupScreen from "../screens/GrupScree";
+import FriendScreen from "../screens/FriendScreen";
+import HomeScreen from "../screens/HomeScreen";
+import SettingScreen from "../screens/SettingScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,11 +37,13 @@ export default function TabScreen() {
                 style={[
                   {
                     backgroundColor: focused ? "#E6E6FA" : "transparent",
-                    borderRadius: 30,
-                    padding: 15,
-                    position: "absolute",
-                    bottom: focused ? 5 : -25,
-                    transition: "bottom 0.3s",
+                    // borderRadius: 30,
+                    borderTopRightRadius: 20,
+                    borderBottomLeftRadius: 20,
+                    padding: 10,
+                    // paddingHorizontal: 15,
+                    // position: "absolute",
+                    // transition: "bottom 0.3s",
                   },
                 ]}
               >
@@ -63,11 +69,15 @@ export default function TabScreen() {
                 style={[
                   {
                     backgroundColor: focused ? "#E6E6FA" : "transparent",
-                    borderRadius: 30,
-                    padding: 15,
-                    position: "absolute",
-                    bottom: focused ? 5 : -25,
-                    transition: "bottom 0.3s",
+                    // borderRadius: 30,
+                    borderTopRightRadius: 20,
+                    borderBottomLeftRadius: 20,
+                    padding: 10,
+                    // paddingHorizontal: 15,
+
+                    // position: "absolute",
+                    // bottom: focused ? 5 : -25,
+                    // transition: "bottom 0.3s",
                   },
                 ]}
               >
@@ -93,11 +103,12 @@ export default function TabScreen() {
                 style={[
                   {
                     backgroundColor: focused ? "#E6E6FA" : "transparent",
-                    borderRadius: 30,
-                    padding: 15,
-                    position: "absolute",
-                    bottom: focused ? 5 : -25,
-                    transition: "bottom 0.3s",
+                    borderTopRightRadius: 20,
+                    borderBottomLeftRadius: 20,
+                    padding: 10,
+                    // position: "absolute",
+                    // bottom: focused ? 5 : -25,
+                    // transition: "bottom 0.3s",
                   },
                 ]}
               >
@@ -123,11 +134,12 @@ export default function TabScreen() {
                 style={[
                   {
                     backgroundColor: focused ? "#E6E6FA" : "transparent",
-                    borderRadius: 30,
-                    padding: 15,
-                    position: "absolute",
-                    bottom: focused ? 5 : -25,
-                    transition: "bottom 0.3s",
+                    borderTopRightRadius: 20,
+                    borderBottomLeftRadius: 20,
+                    padding: 10,
+                    // position: "absolute",
+                    // bottom: focused ? 5 : -25,
+                    // transition: "bottom 0.3s",
                   },
                 ]}
               >
