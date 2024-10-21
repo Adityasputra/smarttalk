@@ -5,6 +5,7 @@ import {
   View,
   SafeAreaView,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
 
@@ -13,29 +14,33 @@ const users = [
     id: 1,
     name: "Yog Sothoth",
     message: "The Truth?",
-    profilePic: "https://ih1.redbubble.net/image.4742602042.5317/raf,360x360,075,t,fafafa:ca443f4786.u1.jpg",
+    profilePic:
+      "https://ih1.redbubble.net/image.4742602042.5317/raf,360x360,075,t,fafafa:ca443f4786.u1.jpg",
   },
   {
     id: 2,
     name: "Nyarlathotep",
     message: "He came from the future",
-    profilePic: "https://static.wikia.nocookie.net/lovecraft/images/0/00/Nyarlthotep.jpg/revision/latest?cb=20150525013305",
+    profilePic:
+      "https://static.wikia.nocookie.net/lovecraft/images/0/00/Nyarlthotep.jpg/revision/latest?cb=20150525013305",
   },
   {
     id: 3,
     name: "Thanatos",
     message: "An unnamed or undefined concept",
-    profilePic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFF8I4GyCn2uw5rqkAhq2Rv1QbIi3SES3Rpg&s",
+    profilePic:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFF8I4GyCn2uw5rqkAhq2Rv1QbIi3SES3Rpg&s",
   },
   {
     id: 4,
     name: "Azathoth",
     message: "An undefined concept",
-    profilePic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTzPE6yVrVuMd4Hg57hiAcuh2okARR4piPoQ&s",
+    profilePic:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTzPE6yVrVuMd4Hg57hiAcuh2okARR4piPoQ&s",
   },
 ];
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -65,7 +70,12 @@ export default function HomeScreen() {
 
         <View style={styles.content}>
           {users.map((user) => (
-            <View key={user.id} style={styles.chatUser}>
+            <TouchableOpacity
+              key={user.id}
+              style={styles.chatUser}
+              // onPress={() => navigation.navigate("Chat", { userId: user.id })}
+              onPress={() => navigation.navigate("Chat")}
+            >
               <Image
                 source={{ uri: user.profilePic }}
                 style={styles.userImage}
@@ -74,7 +84,7 @@ export default function HomeScreen() {
                 <Text style={styles.userName}>{user.name}</Text>
                 <Text style={styles.userMessage}>{user.message}</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           ))}
         </View>
       </ScrollView>
